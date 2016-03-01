@@ -1,0 +1,28 @@
+{
+  "name": "dia-tjugofragor",
+  "version": "0.1.0",
+  "description": "Tjugo Frågor — a prototype for Data Innovation Arena",
+  "keywords": [
+    "sails"
+  ],
+  "dependencies": {
+    "include-all": "~0.1.6",
+    "rc": "1.0.1",
+    "sails": "~0.12.1",
+    "sails-disk": "~0.10.9"
+  },
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/frebro/dia-tjugofrgor.git"
+  },
+  "authors": [
+    "Fredrik Broman, <fredrik.broman@netport.se>",
+    "Alexander Hansson, <alexander.hansson@netport.se>"
+  ],
+  "license": "The MIT License (MIT)"
+}
