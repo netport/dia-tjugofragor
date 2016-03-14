@@ -79,7 +79,8 @@ module.exports.connections = {
     host: 'ec2-54-247-184-117.eu-west-1.compute.amazonaws.com',
     user: 'evqsinhocrecrq',
     password: 'AX9-EmSQs3aESXIboNjm7_TfA7',
-    database: 'dbjucsao3l1clm'
+    database: 'dbjucsao3l1clm',
+    ssl: true
   }
 
 
