@@ -6,12 +6,21 @@
  */
 
 module.exports = {
-	getSession: function(req, res) {
-		
+	login: function(req, res) {
+		//Sessions.create({uuid: req.sessionID});
+		var question = {};
+		Questions.find().limit(1).skip(Math.random() * 2).exec(function(err, result) {
 
-		return res.json({
-			todo: 'I will send you the shit'
-		})
+			Sessions.create({
+				uuid: req.sessionID,
+				question: result
+			});
+			return res.json({
+				question: result,
+				uuid: req.sessionID
+			});
+		});
+		
 	}
 };
 

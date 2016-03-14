@@ -8,6 +8,9 @@
 module.exports = {
 
   attributes: {
+    uuid: {
+      type: 'string',
+    },
   	questions: {
   		collection: 'questions',
   		via: 'id'
