@@ -13,7 +13,8 @@ module.exports = {
   		required: true
   	},
   	order: {
-  		type: 'integer'
+  		type: 'integer',
+      defaultsTo: 0
   	},
   	tags: {
   		collection: 'tags',
@@ -21,7 +22,7 @@ module.exports = {
   	},
     enabled: {
       type: 'boolean',
-      required: true
+      defaultsTo: true
     }
   }
 };

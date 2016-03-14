@@ -27,3 +27,7 @@
   ],
   "license": "The MIT License (MIT)"
 }
+
+"scripts": {
+  "start": "sails lift"
+}

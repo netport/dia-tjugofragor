@@ -17,8 +17,9 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  // models: {
+  models: {
+  	migrate: 'alter'
   //   connection: 'someMongodbServer'
-  // }
+  }
 
 };

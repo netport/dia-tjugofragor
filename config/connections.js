@@ -80,7 +80,8 @@ module.exports.connections = {
     user: 'evqsinhocrecrq',
     password: 'AX9-EmSQs3aESXIboNjm7_TfA7',
     database: 'dbjucsao3l1clm',
-    ssl: true
+    ssl: true,
+    schema: true
   }
 
 
