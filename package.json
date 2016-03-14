@@ -25,9 +25,9 @@
     "Fredrik Broman, <fredrik.broman@netport.se>",
     "Alexander Hansson, <alexander.hansson@netport.se>"
   ],
-  "license": "The MIT License (MIT)"
-}
+  "license": "The MIT License (MIT)",
 
-"scripts": {
-  "start": "sails lift"
+  "scripts": {
+    "start": "sails lift"
+  }
 }
