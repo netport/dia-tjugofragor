@@ -23,12 +23,21 @@ module.exports = function(grunt) {
 
   grunt.config.set('copy', {
     dev: {
-      files: [{
-        expand: true,
-        cwd: './assets',
-        src: ['**/*.!(coffee|less)'],
-        dest: '.tmp/public'
-      }]
+      files: [
+        {
+          expand: true,
+          cwd: './assets',
+          src: ['**/*.!(coffee|less)'],
+          dest: '.tmp/public'
+        },
+        {
+          expand: true,
+          cwd: './node_modules',
+          src: ['normalize.css/normalize.css'],
+          flatten: true,
+          dest: '.tmp/public/styles'
+       }
+     ]
     },
     build: {
       files: [{
