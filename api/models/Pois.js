@@ -8,7 +8,22 @@
 module.exports = {
 
   attributes: {
-
+  	text: {
+  		type: 'string',
+  		required: true
+  	},
+  	adress: {
+  		type: 'string'
+  		required: false
+  	},
+  	tags: {
+  		collection: 'tags',
+  		via: 'id'
+  	},
+    enabled: {
+		type: 'boolean',
+		defaultsTo: true
+	}
   }
 };
 
