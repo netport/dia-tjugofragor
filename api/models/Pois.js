@@ -13,7 +13,7 @@ module.exports = {
   		required: true
   	},
   	adress: {
-  		type: 'string'
+  		type: 'string',
   		required: false
   	},
   	tags: {
