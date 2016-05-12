@@ -12,10 +12,14 @@ module.exports = {
   		type: 'string',
   		required: true
   	},
-  	questions: {
-  		collection: 'questions',
-  		via: 'id'
-  	}
+    questions: {
+      collection: 'questions',
+      via: 'tags'
+    },
+    pois: {
+      collection: 'pois',
+      via: 'tags'
+    }
   	
   }
 };

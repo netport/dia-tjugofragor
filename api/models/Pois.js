@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-  	text: {
+  	name: {
   		type: 'string',
   		required: true
   	},
@@ -16,14 +16,14 @@ module.exports = {
   		type: 'string',
   		required: false
   	},
-  	tags: {
-  		collection: 'tags',
-  		via: 'id'
-  	},
     enabled: {
 		type: 'boolean',
 		defaultsTo: true
-	}
+	},
+  	tags: {
+  		collection: 'tags',
+  		via: 'pois'
+  	}
   }
 };
 
