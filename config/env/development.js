@@ -18,8 +18,8 @@ module.exports = {
    ***************************************************************************/
 
   models: {
+  	connection: 'herokuPostgreSQL',
   	migrate: 'safe'
-  //   connection: 'someMongodbServer'
   }
 
 };

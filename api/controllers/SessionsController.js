@@ -7,7 +7,6 @@
 
 module.exports = {
 	login: function(req, res) {
-		//Sessions.create({uuid: req.sessionID});
 		var question = {};
 		Questions.find().limit(1).skip(Math.random() * 2).exec(function(err, result) {
 
@@ -20,6 +19,27 @@ module.exports = {
 				uuid: req.sessionID
 			});
 		});
+		
+	},
+	save: function(req, res){
+		console.log(req.sessionID);
+	},
+	getQuestion: function(req, res){
+		/*Questions.find().where({'tags': [{'text': 'par'}] }).exec(function(err, result){
+			console.log(err, result);
+		});*/
+
+		Tags.findOne().where({'text': 'havsnära'})
+        .populate('questions')
+        .exec(function(e, c) {
+        	return res.json({
+				result: c,
+				uuid: req.sessionID
+			});
+        })
+		
+		
+
 		
 	}
 };
