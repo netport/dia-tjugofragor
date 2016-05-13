@@ -16,13 +16,13 @@ module.exports = {
   		type: 'integer',
       defaultsTo: 0
   	},
+  	tags: {
+  		collection: 'tags',
+  		via: 'id'
+  	},
     enabled: {
       type: 'boolean',
       defaultsTo: true
-    },
-    tags: {
-      collection: 'tags',
-      via: 'questions'
     }
   }
 };
