@@ -11,14 +11,12 @@ module.exports = {
     uuid: {
       type: 'string',
     },
-  	questions: {
-  		collection: 'questions',
-  		via: 'id'
+  	answers: {
+  		type: 'array'
   	},
-  	tags: {
-  		collection: 'tags',
-  		via: 'id'
-  	}
+    tags: {
+      type: 'array'
+    }
   }
 };
 

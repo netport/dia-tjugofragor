@@ -7,16 +7,21 @@
 
 module.exports = {
 	login: function(req, res) {
-		var question = {};
-		Questions.find().limit(1).skip(Math.random() * 2).exec(function(err, result) {
-
-			Sessions.create({
-				uuid: req.sessionID,
-				question: result
-			});
-			return res.json({
-				question: result,
-				uuid: req.sessionID
+		Sessions.findOrCreate({'uuid': req.sessionID, 'uuid': req.sessionID}).exec(function(err, result){
+			console.log('User: '+req.sessionID+' logged in!');
+			var user = result;
+			Questions.random(function(err, question) {
+				console.log(question[0]);
+				return res.view('layout', {
+					user: user,
+					question: question[0],
+					error: err
+			    });
+				/*return res.json({
+					user: user,
+					question: question,
+					error: err
+				});*/
 			});
 		});
 		
@@ -25,22 +30,34 @@ module.exports = {
 		console.log(req.sessionID);
 	},
 	getQuestion: function(req, res){
-		/*Questions.find().where({'tags': [{'text': 'par'}] }).exec(function(err, result){
-			console.log(err, result);
-		});*/
 
-		Tags.findOne().where({'text': 'havsnära'})
+		Sessions.findOne({'uuid': req.sessionID}).exec(function(err, result){
+			var User = result;
+
+			User.answers = [{'question': req.headers.question},
+							{'answer': req.headers.answer},
+							{'tags': req.headers.tags }];
+			//User.tags = {'answer': req.headers.tags};
+
+			console.log(User);
+
+		});
+
+		Tags.findOne().where({'id': 'havsnära'})
         .populate('questions')
         .exec(function(e, c) {
         	return res.json({
 				result: c,
 				uuid: req.sessionID
 			});
-        })
+        });
 		
-		
+	},
+	answer: function(req, res) {
+		Sessions.findOne(req.sessionID).exec(function(err, result){
+			var user = result;
 
-		
+		});
 	}
 };
 
