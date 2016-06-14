@@ -12,10 +12,6 @@ module.exports = {
   		type: 'string',
   		required: true
   	},
-  	order: {
-  		type: 'integer',
-      defaultsTo: 0
-  	},
     enabled: {
       type: 'boolean',
       defaultsTo: true
