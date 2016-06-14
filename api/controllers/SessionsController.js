@@ -7,11 +7,12 @@
 
 module.exports = {
 	login: function(req, res) {
+
 		Sessions.findOrCreate({'uuid': req.sessionID, 'uuid': req.sessionID}).exec(function(err, result){
 			console.log('User: '+req.sessionID+' logged in!');
 			var user = result;
 			Questions.random(function(err, question) {
-				console.log(question[0]);
+				console.log(question);
 				return res.view('layout', {
 					user: user,
 					question: question[0],

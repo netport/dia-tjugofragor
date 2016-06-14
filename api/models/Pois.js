@@ -17,9 +17,9 @@ module.exports = {
   		required: false
   	},
     enabled: {
-		type: 'boolean',
-		defaultsTo: true
-	},
+  		type: 'boolean',
+  		defaultsTo: true
+	  },
   	tags: {
   		collection: 'tags',
   		via: 'pois'
