@@ -22,7 +22,8 @@ module.exports = {
     },
     tags: {
       collection: 'tags',
-      via: 'questions'
+      via: 'questions',
+      dominant: true
     }
   },
   random: function(result) {
