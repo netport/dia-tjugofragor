@@ -1,14 +1,17 @@
 <div class="container">
-      <% for(var i=0; i<questions.length; i++) { %>
+      <% for(var i=1; i<questions.length; i++) { %>
 
       <div id="card<%=i%>" class="card">
-      
-        <h2> <%=questions[i].text%> </h2>
+
+        <h2 class="card-title"> <%=questions[i].text%> </h2>
         <input class="positive_tags" type="hidden" value="<%=questions[i].positive_tags%>" />
         <input class="negative_tags" type="hidden" value="<%=questions[i].negative_tags%>" />
-        <input class="btn btn-success positive" type="button" value="Jäpp!">
-        <input class="btn btn-danger" type="button" value="Näpp!">
-        
+
+        <div class="card-buttons">
+          <input class="btn positive" type="button" value="Jäpp!">
+          <input class="btn" type="button" value="Näpp!">
+        </div>
+
 
       </div>
 
@@ -20,29 +23,37 @@
           <input type="submit" class="btn" value="Jag är nöjd, ge mig ett förslag!" />
         </form>
     </div>
-    
-    
+
+
 
 
   <script>
   var positive_tags = [];
   var negative_tags = [];
 
-  var cards = $('.cards').length;
+  $('form').hide();
 
-  var active = 0;
-  $('.card').hide();
-  $('#card0').show();
+  var cards = $('.card').length;
+  var active = 1;
 
   function changeCard() {
     $('.card').hide();
     $('#card'+active).show();
   }
+  changeCard();
 
   $('.btn').click(function(e){
     var button = $(e.target);
+
     active++;
-    changeCard();
+    if (active <= cards) {
+      changeCard();
+    }
+    else {
+      $('.card').hide();
+      $('form').show();
+    }
+
     var items = button.parent();
 
     var positive = button.parent().children('.positive_tags').val();
@@ -51,20 +62,13 @@
     positive_tags.push(positive.replace(/(^\s+|\s+$)/g, ''));
 
     if(negative != 'null' && negative != '' && negative != null){
-     negative_tags.push(negative.replace(/(^\s+|\s+$)/g, '')); 
+     negative_tags.push(negative.replace(/(^\s+|\s+$)/g, ''));
     }
-    
+
 
     $('input[name="positive_tags"]').val(positive_tags);
     $('input[name="negative_tags"]').val(negative_tags);
-
-    console.log('positive: '+positive_tags);
-    console.log('negative: '+negative_tags);
-
-    if(cards == active) {
-      $('form').show();
-    }
   });
 
 
-  </script>  
+  </script>
