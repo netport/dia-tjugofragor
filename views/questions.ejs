@@ -4,22 +4,23 @@
       <div id="card<%=i%>" class="card">
       
         <h2> <%=questions[i].text%> </h2>
-        <p><%=questions[i].positive_tags%></p>
         <input class="positive_tags" type="hidden" value="<%=questions[i].positive_tags%>" />
         <input class="negative_tags" type="hidden" value="<%=questions[i].negative_tags%>" />
         <input class="btn btn-success positive" type="button" value="Jäpp!">
         <input class="btn btn-danger" type="button" value="Näpp!">
+        
 
       </div>
 
       <% } %>
-    </div>
 
-    <form action="/sessions/calculate" method="POST">
-      <input type="hidden" name="positive_tags" />
-      <input type="hidden" name="negative_tags" />
-      <input type="submit" class="btn" />
-    </form>
+      <form action="/sessions/calculate" method="POST">
+          <input type="hidden" name="positive_tags" />
+          <input type="hidden" name="negative_tags" />
+          <input type="submit" class="btn" value="Jag är nöjd, ge mig ett förslag!" />
+        </form>
+    </div>
+    
     
 
 
