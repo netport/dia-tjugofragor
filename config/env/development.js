@@ -18,8 +18,8 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-  	connection: 'someMysqlServer',
-  	migrate: 'alter'
+  	connection: 'localMysqlServer',
+  	migrate: 'safe'
   }
 
 };

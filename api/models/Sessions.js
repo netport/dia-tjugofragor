@@ -10,13 +10,9 @@ module.exports = {
   attributes: {
     uuid: {
       type: 'string',
-    },
-  	answers: {
-  		type: 'array'
-  	},
-    tags: {
-      type: 'array'
     }
+
+
   }
 };
 

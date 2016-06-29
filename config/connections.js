@@ -40,12 +40,21 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  someMysqlServer: {
+  herokuMysqlServer: {
     adapter: 'sails-mysql',
     host: 'eu-cdbr-west-01.cleardb.com',
     user: 'b0afcb16d962f9',
     password: '51fb5c66',
     database: 'heroku_d69da3d93816178'
+  },
+
+  localMysqlServer: {
+    adapter: 'sails-mysql',
+    host: 'localhost',
+    port: 8889,
+    user: 'root',
+    password: 'root',
+    database: 'fragor'
   },
 
   /***************************************************************************

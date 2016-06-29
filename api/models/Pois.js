@@ -20,10 +20,9 @@ module.exports = {
   		type: 'boolean',
   		defaultsTo: true
 	  },
-  	tags: {
-  		collection: 'tags',
-  		via: 'pois'
-  	}
+    tags: {
+      type: 'array'
+    }
   }
 };
 

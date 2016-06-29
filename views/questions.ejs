@@ -1,0 +1,69 @@
+<div class="container">
+      <% for(var i=0; i<questions.length; i++) { %>
+
+      <div id="card<%=i%>" class="card">
+      
+        <h2> <%=questions[i].text%> </h2>
+        <p><%=questions[i].positive_tags%></p>
+        <input class="positive_tags" type="hidden" value="<%=questions[i].positive_tags%>" />
+        <input class="negative_tags" type="hidden" value="<%=questions[i].negative_tags%>" />
+        <input class="btn btn-success positive" type="button" value="Jäpp!">
+        <input class="btn btn-danger" type="button" value="Näpp!">
+
+      </div>
+
+      <% } %>
+    </div>
+
+    <form action="/sessions/calculate" method="POST">
+      <input type="hidden" name="positive_tags" />
+      <input type="hidden" name="negative_tags" />
+      <input type="submit" class="btn" />
+    </form>
+    
+
+
+  <script>
+  var positive_tags = [];
+  var negative_tags = [];
+
+  var cards = $('.cards').length;
+
+  var active = 0;
+  $('.card').hide();
+  $('#card0').show();
+
+  function changeCard() {
+    $('.card').hide();
+    $('#card'+active).show();
+  }
+
+  $('.btn').click(function(e){
+    var button = $(e.target);
+    active++;
+    changeCard();
+    var items = button.parent();
+
+    var positive = button.parent().children('.positive_tags').val();
+    var negative = button.parent().children('.negative_tags').val();
+
+    positive_tags.push(positive.replace(/(^\s+|\s+$)/g, ''));
+
+    if(negative != 'null' && negative != '' && negative != null){
+     negative_tags.push(negative.replace(/(^\s+|\s+$)/g, '')); 
+    }
+    
+
+    $('input[name="positive_tags"]').val(positive_tags);
+    $('input[name="negative_tags"]').val(negative_tags);
+
+    console.log('positive: '+positive_tags);
+    console.log('negative: '+negative_tags);
+
+    if(cards == active) {
+      $('form').show();
+    }
+  });
+
+
+  </script>  

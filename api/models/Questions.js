@@ -8,6 +8,11 @@
 module.exports = {
 
   attributes: {
+    id: {
+      type: 'integer',
+      unique: true,
+      primaryKey: true,
+    },
   	text: {
   		type: 'string',
   		required: true
@@ -16,15 +21,21 @@ module.exports = {
       type: 'boolean',
       defaultsTo: true
     },
-    tags: {
-      collection: 'tags',
-      via: 'questions',
-      dominant: true
+    positive_tags: {
+      type: 'array',
+      required: true
+    },
+    negative_tags: {
+      type: 'array'
     }
   },
+
+  //A function for findning one random question.
   random: function(result) {
 
     var self = this;
+
+    var questions = array();
 
     this.count(function(err, num) {
         if(err)
