@@ -13,7 +13,7 @@ module.exports = {
 			return Math.floor((Math.random() * 20) + 1);
 		}
 
-		while(randomz.length < 5) {
+		while(randomz.length < 6) {
 			var temp = getRandomNumber();
 			console.log(temp);
 			randomz.push(temp);
@@ -30,8 +30,6 @@ module.exports = {
 		
 		var positive_tags = req.body.positive_tags.split(',');
 		var negative_tags = req.body.negative_tags.split(',');
-
-		//console.log('Positive tags: '+positive_tags);
 
 		var best_match = {};
 
@@ -52,14 +50,18 @@ module.exports = {
 						}
 					}
 
+					for(var k=0; k<negative_tags.length; k++) {
+						if(tag == negative_tags[k]) {
+							poi.points = poi.points - 1;
+						}
+					}
+
 				}
 
 				if(best_match.points == undefined || best_match.points < poi.points) {
 					best_match = poi;
 				}
 			}
-
-			console.log(best_match);
 
 			return res.view('result', {poi: best_match});
 			
