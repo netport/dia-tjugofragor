@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card-title {
+  font-family: Copse, serif;
+  font-size: 2rem;
+  margin: 0;
+  padding: 1.5rem;
+  flex: 1 1 100%;
+}
+
+.card-buttons {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row nowrap;
+
+  .btn {
+    flex: 1  1 auto;
+    background-color: crimson;
+    color: white;
+
+    &.positive {
+      background-color: seagreen;
+    }
+  }
+}
